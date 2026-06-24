@@ -1,0 +1,103 @@
+____________________________________________________
+(AVL Insert Method)
+_____________________________________________________
+TreeNode<int>* avlInsert(TreeNode<int>* root,int info)
+{
+if(info<root->getInfo())
+{root->setLeft(avlInsert(root->getLeft(),info));
+int htdiff=height(root->getLeft())-height(root->getRight());
+if(htdiff==2)
+if(info<root->getLeft()->getInfo())
+root=singleRightRotate(root);
+else
+root=doubleLeftRightRotate(root);
+	}
+	
+else if(info>root->getInfo())
+{
+root->setRight(avlInsert(root->getRight(),info));
+int htdiff=height(root->getRight())-height(root->getLeft());
+if(htdiff==2)
+if(info>root->getRight()->getInfo())
+root=singleLeftRotate();
+else
+root=doubleRightLeftRotate(root);	
+}
+int h=Max(height(root->getLeft()),height(root->getRight()));
+root->setHeight(h+1);
+return root;		
+}
+__________________________________________________
+(Single Right Rotate)
+__________________________________________________
+
+TreeNode<int>* singleRightRotate(TreeNode<int>* k2)
+{
+if(k2==NULL)
+return NULL;
+TreeNode<int>* k1=k2->getLeft();
+k2->setLeft(k1->getRight());
+k1->setRight(k2);
+int h=Max(height(k2->getLeft()),height(k2->getRight()));
+k2->setHeight(h+1);
+h=Max(height(k1->getLeft()),k2->getHeight());
+k1->setHeight(h+1);
+return k1;		
+}
+________________________________________________________
+(Height Method)
+________________________________________________________
+
+int height(TreeNode<int>* node)
+{if(node!=NULL)
+return node->getHeight();
+else
+return -1;
+}
+______________________________________________________
+(Single Left Rotate)
+______________________________________________________
+
+TreeNode<int>* singleLeftRotate(TreeNode<int>* k2)
+{
+if(k2==NULL)
+return NULL;
+TreeNode<int>* k1=k2->getRight();
+k2->setRight(k1->getLeft());
+k1->setLeft(k2);	
+int h=Max(height(k2->getLeft()),height(k2->getRight()));
+k2->setHeight(h+1);
+h=Max(k2->getHeight(),height(k1->getRight()));
+k1->setHeight(h+1);
+return k1;		
+
+}
+
+_______________________________________________________
+Double Right-Left Rotate
+_______________________________________________________
+
+TreeNode<int>* doubleRightLeftRotate(TreeNode<int>* k1)
+{
+//Single right rotate
+k1->setRight(singleRightRotate(k1->getRight()));
+//Single left rotate
+return singleLeftRotate(k1);		
+}
+
+_______________________________________________________
+Double Left-Right Rotate
+_______________________________________________________
+
+TreeNode<int>* doubleLeftRightRotate(TreeNode<int>* k3)
+{
+//Single left Rotate
+k3->setLeft(singleLeftRotate(k3->getLeft()));
+//Single Right Rotate
+return singleRightRotate(k3);		
+}
+
+
+
+
+

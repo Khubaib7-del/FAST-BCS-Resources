@@ -1,0 +1,120 @@
+___________________________________________________
+//Remove Method
+___________________________________________________
+TreeNode<int>* remove(TreeNode<int>* tree,int info)
+{
+	
+TreeNode<int> *t;
+int cmp=info-*(tree->getInfo());
+
+if(cmp<0)
+{t=remove(tree->getLeft(),info);
+tree->setLeft(t);
+	}	
+else if(cmp>0)
+{t=remove(tree->getRight(),info);
+tree->setRight(t);
+}
+else if(tree->getLeft()!=NULL && tree->getRight!=NULL)
+{
+TreeNode<int> *minNode;
+minNode=findMin(tree->getRight());
+tree->setInfo(minNode->getInfo());
+t=remove(tree->getRight(),*(minNode->getInfo()));
+tree->setRight(t);	
+	}	
+else
+{TreeNode<int> *deleteNode=tree;
+if(tree->getLeft()==NULL)
+tree=tree->getRight();
+else if(tree->getRight()==NULL)
+tree=tree->getLeft();
+else 
+tree=NULL;
+
+delete deleteNode;	
+
+}	
+return tree;		
+}
+_____________________________________________
+//FindMin Method
+_____________________________________________
+
+TreeNode<int>* findMin(TreeNode<int> *root)
+{
+if(root==NULL)
+return NULL;
+if(root->getLeft()==NULL)
+return root;
+return findMin(root->getLeft());		
+}
+_____________________________________________
+//FindMax Method
+_____________________________________________
+TreeNode<int>* findMax( BinaryNode<EType> *t ) const
+{
+if( t != NULL )
+while( t->right != NULL )
+t = t->right;
+return t;
+}
+_______________________________________________
+//Insert Method
+_______________________________________________
+
+void insert(const T &x,TreeNode<T>* &t)
+{
+if(t==NULL)
+t=new TreeNode<T>(x,NULL,NULL);
+else if(x<t->getInfo())
+insert(x,t->getLeft());
+else if(x>t->getInfo())
+insert(x,t->getRight());
+else
+;//Duplicate	
+}
+
+__________________________________________________
+//Find Method
+__________________________________________________
+1:
+TreeNode<T>* find(const T&x,TreeNode<T> *t)const
+{
+while(t!=NULL)
+{if(x<t->getInfo())
+t=t->getLeft();
+else if(x>t->getInfo())
+t=t->getRight();
+else
+return t; //Match
+	}	
+return NULL;//No Match	
+}
+	
+	
+	
+}
+2:
+TreeNode<T>* find( const EType & x, BinaryNode<EType> *t ) const
+{
+if( t == NULL )
+return NULL;
+else if( x < t->element )
+return find( x, t->left );
+else if( t->element < x )
+return find( x, t->right );
+else
+return t; // Match
+}
+
+
+
+
+
+
+
+
+
+
+

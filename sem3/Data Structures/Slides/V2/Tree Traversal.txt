@@ -1,0 +1,32 @@
+
+1:--preorder(N,L,R)--
+__________________________________
+void preorder(TreeNode<int> *root)
+{if(root!=NULL)
+{cout<<*(root->getInfo())<<" ";
+preorder(root->getLeft());
+preorder(root->getRight());
+}
+}
+__________________________________
+2:--inorder(L,N,R)--
+__________________________________
+void inorder(TreeNode<int> *root)
+{if(root!=NULL)
+{inorder(root->getLeft());
+cout<<*(root->getInfo())<<" ";
+inorder(root->getRight());
+}
+}
+_________________________________
+3:--postorder(L,R,N)--
+_________________________________	
+void postorder(TreeNode<int> *root)
+{if(root!=NULL)
+{postorder(root->getLeft());
+postorder(root->getRight());
+cout<<*(root->getInfo())<<" ";
+
+}
+}
+	
