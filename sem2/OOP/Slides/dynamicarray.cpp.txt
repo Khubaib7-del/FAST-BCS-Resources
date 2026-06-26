@@ -1,0 +1,91 @@
+#include<iostream>
+using namespace std;
+int global_Var = 42;
+// function to change pointer value
+void changePointerValue(int*& pp)
+{
+	cout << "*pp= "<< * pp<<"\n";
+	pp = &global_Var;
+	cout << "*pp= " << *pp << "\n";
+//	return pp;
+}
+/*int SumofElement(int* A, int size) {
+	int sum = 0;
+	for (int i = 0; i < size; i++)
+	{
+		sum += A[i];
+	}
+	return sum;
+}
+int* func_return_pointer()
+{
+ int A = 10;
+	A++;
+	cout <<"func "<< &A << "\n";
+
+
+	return (&A);
+
+}*/
+
+int main()
+{/*
+	int a = 10;
+	int* p = &a;
+	int* q = p;
+	if (p == q) {
+		cout << "Both pointers are equal and referencing to same memory location\n";
+		*p = 25;
+		cout << "*q = " << *q<<"\n";
+	}
+
+	cout << "before arthimetic operation p = " << p<<endl;
+	(*p)++;
+	cout << "after arthimetic operation p = " << p << endl;
+	cout << "*p = "<< * p;
+	cout << "*q = " << *q;
+	if(p!=q){
+		cout << "not equal\n";
+	}
+	int* arraylist;
+	int size;
+	cout << "Enter array size: "; 
+	cin >> size;
+	cout << endl;
+	//int a1[size];
+	arraylist = new int[size];
+	for (int i = 0,j=1; i < size; i++)
+	{
+		arraylist[i] = j++;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		cout << "arraylist["<<i<<"] = "<< arraylist[i] << endl;
+	}
+	cout << "Sum of Arraylist is = " << SumofElement(arraylist, size)<<"\n";
+	
+	// Declare a pointer
+	int* returnpointer;
+	// Function call
+	/*static int ab = 5;
+	ab++;
+	returnpointer = func_return_pointer();
+	cout << returnpointer<<endl;
+	cout << *returnpointer<<endl;
+	*returnpointer=*returnpointer + 10;
+	cout << *returnpointer << endl;
+
+	returnpointer = func_return_pointer();
+	cout << returnpointer << endl;
+	cout << *returnpointer << endl;
+	*/
+		int var = 23;
+	int* ptr_to_var = &var;
+	cout << "Passing Pointer to function:" << endl;
+	cout << "Before :" << *ptr_to_var << endl; // display 23
+	changePointerValue(ptr_to_var);
+	cout << "After :" << *ptr_to_var << endl; // display 23
+	
+	system("pause");
+	return 0;
+}

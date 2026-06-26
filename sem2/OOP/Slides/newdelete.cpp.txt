@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+//int global_Var = 42;
+//// function to change pointer value
+//void changePointerValue(int*& pp)
+//{
+//	pp = &global_Var;
+//}
+
+int main()
+{// basic
+	int x = 5;
+	int* a1 = &x;
+	cout << a1 << endl;
+	//using new and delete
+	int* a = new int;
+	*a = 54;
+	cout << "*a: " << *a << endl;
+	cout << "a: " << a << endl;
+	cout << "&a: " << &a << endl;
+	int* p = new int(4);
+
+float* p2 = new float[3];
+	//*p2 = 0;
+	delete p;
+	p=a ;
+	cout << p;
+	p = p + 1;
+	*p = 10;
+	cout << "*p: " << *p<<"V: "<<p;
+//	cout << "*p2: " << *p2 << endl;
+	/*int* p1 = new int(6);
+	cout << "*p: " << *p << ", p1: " << *p1 << endl;
+	p1[0] = 20;
+	p1[1] = 15;
+	cout << "p1[0]: " << p1[0] << endl;
+	cout << "p1[1]: " << p1[1] << endl;
+		cout <<  ", p1: " << *p1 << endl;*/
+
+	p2[0] = 20.87;
+	p2[1] = 15.54;
+	p2[2] = 10.23;
+	//delete[] p2;
+	cout << "p2[0]: " << p2[0] << endl;
+	cout << "p2[1]: " << p2[1] << endl;
+	cout << "p2[2]: " << p2[2] << endl;
+	cout << "*p2: " << *p2 << endl;
+	//
+	//int var = 23;
+	//int* ptr_to_var = &var;
+	//cout << "Passing Pointer to function:" << endl;
+	//cout << "Before :" << *ptr_to_var << endl; // display 23
+	//changePointerValue(ptr_to_var);
+	//cout << "After :" << *ptr_to_var << endl; // display 23
+
+	system("pause");
+	return 0;
+}

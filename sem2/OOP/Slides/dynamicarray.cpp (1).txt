@@ -1,0 +1,200 @@
+#include<iostream>
+using namespace std;
+int global_Var = 42;
+// function to change pointer value
+/*int* changePointerValue(int* pp)
+{
+	cout << "*pp= "<< * pp<<"\n";
+	pp = &global_Var;
+	cout << "*pp= " << *pp << "\n";
+	return pp;
+}
+// function to return reference value
+int& ReturnReference() { return global_Var; }*/
+/*int SumofElement(int* A, int size) {
+	int sum = 0;
+	for (int i = 0; i < size; i++)
+	{
+		sum += A[i];
+	}
+	return sum;
+}
+int* func_return_pointer()
+{
+ int A = 10;
+	A++;
+	cout <<"func "<< &A << "\n";
+
+
+	return (&A);
+
+}*/
+
+int MMain()
+{
+	/*
+	int a = 10;
+	int* p = &a;
+	int* q = p;
+	if (p == q) {
+		cout << "Both pointers are equal and referencing to same memory location\n";
+		*p = 25;
+		cout << "*q = " << *q<<"\n";
+	}
+
+	cout << "before arthimetic operation p = " << p<<endl;
+	(*p)++;
+	cout << "after arthimetic operation p = " << p << endl;
+	cout << "*p = "<< * p;
+	cout << "*q = " << *q;
+	if(p!=q){
+		cout << "not equal\n";
+	}
+	int* arraylist;
+	int size;
+	cout << "Enter array size: "; 
+	cin >> size;
+	cout << endl;
+	//int a1[size];
+	arraylist = new int[size];
+	for (int i = 0,j=1; i < size; i++)
+	{
+		arraylist[i] = j++;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		cout << "arraylist["<<i<<"] = "<< arraylist[i] << endl;
+	}
+	cout << "Sum of Arraylist is = " << SumofElement(arraylist, size)<<"\n";
+	*/
+	// Declare a pointer
+/*	int* returnpointer;
+	// Function call
+	static int ab = 5;
+	ab++;
+	returnpointer = func_return_pointer();
+	cout << returnpointer<<endl;
+	cout << *returnpointer<<endl;
+	*returnpointer=*returnpointer + 10;
+	cout << *returnpointer << endl;
+
+	returnpointer = func_return_pointer();
+	cout << returnpointer << endl;
+	cout << *returnpointer << endl;
+	*/
+/*	int var = 23;
+	int* ptr_to_var = &var;
+	cout << "Passing Pointer to function:" << endl;
+	cout << "Before :" << *ptr_to_var << endl; // display 23
+//	ptr_to_var=changePointerValue(ptr_to_var);
+	ptr_to_var = &ReturnReference();
+
+	cout << "var: "<<var<<" : After :" << *ptr_to_var << endl; // display 23
+	*ptr_to_var = 90;
+	cout << "global_Var"<<global_Var;*/
+	/*int  var_A;
+	int* ptr;
+	int** pptr;
+	var_A = 3000;
+	// take the address of var
+	ptr = &var_A;
+	// take the address of ptr using address of operator &
+	pptr = &ptr;
+	// take the value using pptr
+	cout << "Value of var :" << var_A << endl;
+	cout << "Value available at *ptr :" << *ptr << endl;
+	cout << "Value available at **pptr :" << *pptr << endl;
+	cout << "Value available at **pptr :" << **pptr << endl;*/
+	/*
+int arr[3][4] = {{10, 20, 30, 40}, {50, 60, 70, 80}, {90, 100, 11, 12}};
+
+	cout << arr<<endl;
+	cout << arr + 1<<endl;
+	cout << arr + 2 << endl;
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout<< arr[i]<<": ";
+		cout << arr+i << ": ";
+		cout << **(arr + i) << ": ";
+		for (int j = 0; j < 4; j++)
+			cout  << arr[i][j] << " ";
+		cout << endl;
+	}*/
+	////2D array
+	/*int arr[3][4] = {
+  { 10, 11, 12, 13 },
+  { 20, 21, 22, 23 },
+  { 30, 31, 32, 33 }
+	};
+	int i, j;
+	for (i = 0; i < 3; i++)
+	{
+		cout << i << " " << arr[i] << " " << *(arr + i) << endl;
+
+		for (j = 0; j < 4; j++)//*(*(arr + i) + j)
+		cout << arr[i][j] << " " << **((arr + i) + j) << endl;
+		cout << "\n";
+	}*/
+	
+//	//dynamic 2D array
+/*
+		int** arry;
+		int row, col, i, j;
+		cout << "Number of Rows:" << endl;
+		cin >> row;
+		cout << "Number of Columns:" << endl;
+		cin >> col;
+		//Allocating the row space in heap dynamically
+		arry = new int* [row];
+		//Allocating the column space in heap dynamically
+		for (i = 0; i < row; i++) {
+			arry[i] = new int[col];
+		}
+		//Giving inputs to the array
+	cout << "Enter " << (row * col) << " numbers to the Array\n";
+	for (i = 0; i < row; i++) {
+		for (j = 0; j < col; j++) {
+			cout << "Enter the elements at Row " << i + 1 << " Column " << j + 1 << endl;
+			cin >> arry[i][j];
+		}
+	}
+	//Display the array
+	cout << "Here is your 2D Array:" << endl;
+	for (i = 0; i < row; i++) {
+		for (j = 0; j < col; j++) {
+			cout << arry[i][j] << ' ';
+		}
+		cout << endl;
+	}
+	//Free the memory after the use of array
+	for (i = 0; i < row; i++) {
+		delete[] arry[i];
+	}
+	delete[] arry;
+	*/
+	int max = 5;
+	int* a = new int[max];                               // allocated on heap
+	int n = 0;
+	//--- Read into the array
+	while (cin >> a[n]) {
+		n++;
+		if (n >= max) {
+			max = max * 2;                             // double the previous size
+			
+			int* temp = new int[max];         // create new bigger array.
+			for (int i = 0; i < n; i++) {
+				temp[i] = a[i];                            // copy values to new array.
+			}
+			delete[] a;                                      // free old array memory.
+			a = temp;                                       // now a points to new array.
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i] << endl;
+	}
+	
+	system("pause");
+	return 0;
+}
