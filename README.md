@@ -1,6 +1,11 @@
-# 🎓 FAST Computing Resources
+# 🎓 FAST BCS Resources
 
-Welcome to the **FAST Computing Resources** hub! This repository is a central, community-driven archive designed to help current and upcoming batches at FAST-NUCES navigate their academic journey with ease. 
+Welcome to the **FAST BCS Resources** hub! This repository is a central, community-driven archive designed to help current and upcoming batches at FAST-NUCES navigate their academic journey with ease.
+
+> [!NOTE]
+> This repository is structured specifically for the **BS CS (Bachelor of Science in Computer Science)** program, based on the **Batch 2024** curriculum. 
+> * **Course Shuffling**: Course distributions can shuffle from batch to batch.
+> * **Departmental Differentiation**: As semesters progress, courses differentiate between various computing departments/disciplines like CS, SE, DS, AI, and CY. These resources are tailored for the core BS CS track.
 
 Here, you will find organized lecture slides, study outlines, and hand-written or digital notes for courses spanning from Semester 1 to Semester 4 (and beyond as we grow!).
 
@@ -14,8 +19,9 @@ The repository is structured semester-wise, with each course containing three st
 *   **`Outline/`**: Course outlines, grading policies, and reference book recommendations.
 
 ```text
-FAST-Computing-Resources/
+FAST-BCS-Resources/
 ├── sem1/
+│   ├── Applied Physics/
 │   ├── Calculus and Analytical Geometry/
 │   ├── Functional English/
 │   ├── ICP/
@@ -66,3 +72,4 @@ This is a collaborative space! Contributions from all batches (ongoing and upcom
 ---
 
 *Made with ❤️ by the FAST-NUCES Student Community.*
+
